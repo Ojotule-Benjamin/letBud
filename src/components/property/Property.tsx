@@ -7,9 +7,10 @@ import icon2 from "../../assets/svg/icon2.svg";
 import icon3 from "../../assets/svg/icon3.svg";
 import { property } from "../../constants";
 import CustomButton from "../CustomButton";
-import PropertyTab from "../PropertyTab";
+// import PropertyTab from "../PropertyTab";
 import TotalPaymentCard from "../TotalPaymentCard";
 import { CustomTabs } from "../CustomTab";
+import UnitDetails from "../UnitDetails";
 
 const icons = [
   {
@@ -33,7 +34,25 @@ const Property = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const tabs = [
-    { label: "Unit Details", content: <div>Content for Amenities</div> },
+    {
+      label: "Unit Details",
+      content: (
+        <div>
+          {property.map((propertyItem, propertyIndex) => (
+            <div key={propertyIndex}>
+              {propertyItem.units.map((unit, unitIndex) => (
+                <UnitDetails
+                  key={unitIndex}
+                  amount={unit.amount}
+                  houseDetails={unit.unitDetails}
+                  img={unit.img}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      ),
+    },
     { label: "Amenities", content: <div>Content for Amenities</div> },
     {
       label: "Policies",
@@ -54,7 +73,7 @@ const Property = () => {
       {property.map((item, index) => {
         return (
           <div
-            key={index}
+            key={item.id}
             className="w-full h-full flex flex-col-reverse lg:flex-col "
           >
             {/* top */}
@@ -96,7 +115,7 @@ const Property = () => {
               </div>
 
               {/* images display on mobile */}
-              <div className=" w-full h-64 bg-red-600 flex lg:hidden relative overflow-hidden">
+              <div className=" w-full h-64 flex lg:hidden relative overflow-hidden">
                 {item.imgs.map((img, index) => {
                   const handleDotClick = (index: any) => {
                     setCurrentIndex(index);

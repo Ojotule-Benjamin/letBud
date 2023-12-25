@@ -10,7 +10,25 @@ export const property = [
     address: "Anifowoshe Street Sabo, Yaba",
     propertyDesc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-    imgs: [bedroom, DiningArea, FurnishedApartment, imagery],
+    imgs: [
+      {
+        id: 0,
+        picture: bedroom,
+      },
+      {
+        id: 1,
+        picture: DiningArea,
+      },
+      {
+        id: 2,
+        picture: FurnishedApartment,
+      },
+      {
+        id: 3,
+        picture: imagery,
+      },
+    ],
+
     date: "Nov 8",
     amount: "580,000",
     units: [
@@ -43,7 +61,25 @@ export const property = [
     address: "Opposite Stella Marist College, Life-camp",
     propertyDesc:
       "Welcome to our charming semi-detached duplex in the heart of Yaba. This tastefully designed residence on Anifowoshe Street, Sabo, offers a perfect blend of comfort and style. Featuring spacious units with modern amenities, each unit promises a delightful living experience.",
-    imgs: [bedroom, DiningArea, FurnishedApartment, imagery],
+    // imgs: [bedroom, DiningArea, FurnishedApartment, imagery],
+    imgs: [
+      {
+        id: 0,
+        picture: bedroom,
+      },
+      {
+        id: 1,
+        picture: DiningArea,
+      },
+      {
+        id: 2,
+        picture: FurnishedApartment,
+      },
+      {
+        id: 3,
+        picture: imagery,
+      },
+    ],
     date: "8 Dec",
     amount: "80,000",
     units: [

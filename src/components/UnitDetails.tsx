@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import icon1 from "../assets/svg/icon1.svg";
 import icon2 from "../assets/svg/icon2.svg";
 import icon3 from "../assets/svg/icon3.svg";
@@ -22,23 +22,23 @@ const UnitDetails: React.FC<UnitDetailsProps> = (props) => {
   const { unitDetails } = props.houseDetails;
 
   return (
-    <div className=" w-[565px] h-[201px] cursor-pointer bg-[#FCFCFD] flex items-center justify-between gap-6 px-5 py-0 border-[1px] border-[#E9EAED] mt-10">
-      <div className="w-44 h-[137px]">
+    <div className=" w-[90%] md:w-[343px] lg:w-[565px] h-[170px] lg:h-[201px] shadow-xl cursor-pointer bg-[#FCFCFD] flex items-center justify-between gap-3 lg:gap-6 px-2 lg:px-5 py-0 border-[1px] border-[#E9EAED] rounded-lg mx-auto md:mx-0 mt-10">
+      <div className=" w-full h-[60px] lg:w-44 lg:h-[137px]">
         <img
           src={props.houseDetails.img}
           alt=""
-          className=" w-full h-full object-cover"
+          className=" w-full h-full rounded-lg object-cover"
         />
       </div>
       <div className="w-[389px]">
-        <h3 className=" font-inter font-medium text-base text-primary_main leading-7 mb-4">
+        <h3 className=" font-inter font-medium text-sm lg:text-base text-primary_main leading-7 mb-2 lg:mb-4">
           Unit {props.houseDetails.unit}
         </h3>
-        <span className="font-inter font-bold text-base text-neutrals_100 leading-7">
+        <span className="font-inter font-bold text-sm lg:text-base text-neutrals_100 leading-7">
           ₦ {props.houseDetails.amount}
         </span>
 
-        <div className=" w-full flex items-center justify-start mt-3">
+        <div className=" w-full flex items-center justify-start mt-0 lg:mt-3">
           {unitDetails &&
             unitDetails.map((detail, index) => (
               <React.Fragment key={index}>
@@ -49,9 +49,9 @@ const UnitDetails: React.FC<UnitDetailsProps> = (props) => {
                   <img
                     src={detailIconMapping[detail] || icon1}
                     alt=""
-                    className="w-4 h-4"
+                    className="hidden lg:flex w-4 h-4"
                   />
-                  <span className="font-inter font-medium text-xs lg:text-base text-[neutrals_200]">
+                  <span className="font-inter font-medium text-[9px] lg:text-base text-[neutrals_200]">
                     {detail}
                   </span>
                 </div>

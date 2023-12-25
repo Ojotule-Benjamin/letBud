@@ -10,6 +10,7 @@ import CustomButton from "../CustomButton";
 import TotalPaymentCard from "../TotalPaymentCard";
 import { CustomTabs } from "../CustomTab";
 import UnitDetails from "../UnitDetails";
+import Policies from "../Policies";
 
 const icons = [
   {
@@ -69,10 +70,7 @@ const Property = () => {
       label: "Policies",
       content: (
         <div>
-          <h2>Policies</h2>
-          <h4>Getting There</h4>
-          <h4>House details and rules</h4>
-          <h4>Price and availability</h4>
+          <Policies />
         </div>
       ),
     },
@@ -120,8 +118,8 @@ const Property = () => {
               <div className=" hidden w-full lg:w-[65%] lg:flex flex-wrap items-start justify-start gap-5">
                 {leastAmountProperty.imgs.map((img, index) => (
                   <img
-                    key={index}
-                    src={img}
+                    key={img.id}
+                    src={img.picture}
                     alt=""
                     className=" w-[346px] h-64 object-cover rounded-2xl "
                   />
@@ -138,7 +136,8 @@ const Property = () => {
                   return (
                     <div>
                       <img
-                        src={img}
+                        src={img.picture}
+                        key={img.id}
                         alt=""
                         className={`w-full h-64 object-cover absolute transition-transform transform ${
                           index === currentIndex
@@ -242,7 +241,7 @@ const Property = () => {
 
           <CustomButton
             text="Show all units"
-            className="hidden lg:flex w-[146px] h-12 px-0 py-4 rounded font-inter font-medium text-base text-primary_main leading-7 border-[1px] border-primary_main mt-10"
+            className="flex w-[146px] h-12 ml-4 lg:ml-0 px-0 py-4 rounded font-inter font-medium text-base text-primary_main leading-7 border-[1px] border-primary_main mt-10"
           />
         </div>
         <div className=" w-full lg:w-[35%]">

@@ -23,7 +23,7 @@ const UnitDetails: React.FC<UnitDetailsProps> = (props) => {
 
   return (
     <div className=" w-[90%] md:w-[343px] lg:w-[565px] h-[170px] lg:h-[201px] shadow-xl cursor-pointer bg-[#FCFCFD] flex items-center justify-between gap-3 lg:gap-6 px-2 lg:px-5 py-0 border-[1px] border-[#E9EAED] rounded-lg mx-auto md:mx-0 mt-10">
-      <div className=" w-full h-[60px] lg:w-44 lg:h-[137px]">
+      <div className=" w-full h-[90px] lg:w-44 lg:h-[137px]">
         <img
           src={props.houseDetails.img}
           alt=""
@@ -51,7 +51,7 @@ const UnitDetails: React.FC<UnitDetailsProps> = (props) => {
                     alt=""
                     className="hidden lg:flex w-4 h-4"
                   />
-                  <span className="font-inter font-medium text-[9px] lg:text-base text-[neutrals_200]">
+                  <span className="font-inter font-normal text-[9px] lg:text-base text-[neutrals_200]">
                     {detail}
                   </span>
                 </div>

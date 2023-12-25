@@ -7,7 +7,6 @@ import icon2 from "../../assets/svg/icon2.svg";
 import icon3 from "../../assets/svg/icon3.svg";
 import { property } from "../../constants";
 import CustomButton from "../CustomButton";
-// import PropertyTab from "../PropertyTab";
 import TotalPaymentCard from "../TotalPaymentCard";
 import { CustomTabs } from "../CustomTab";
 import UnitDetails from "../UnitDetails";
@@ -33,23 +32,35 @@ const icons = [
 const Property = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const compareAmount = (a: any, b: any) => {
+    const amountA = parseFloat(a.amount);
+    const amountB = parseFloat(b.amount);
+
+    if (amountA < amountB) {
+      return -1;
+    }
+    if (amountA > amountB) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const sortedProperty = property.sort(compareAmount);
+
+  const leastAmountProperty = sortedProperty[0];
+
   const tabs = [
     {
       label: "Unit Details",
       content: (
         <div>
-          {property.map((propertyItem, propertyIndex) => (
-            <div key={propertyIndex}>
-              {propertyItem.units.map((unit, unitIndex) => (
-                <UnitDetails
-                  key={unitIndex}
-                  amount={unit.amount}
-                  houseDetails={unit.unitDetails}
-                  img={unit.img}
-                />
-              ))}
-            </div>
-          ))}
+          {leastAmountProperty.units.map((propertyItem, propertyIndex) => {
+            return (
+              <div key={propertyIndex}>
+                <UnitDetails key={propertyIndex} houseDetails={propertyItem} />
+              </div>
+            );
+          })}
         </div>
       ),
     },
@@ -70,10 +81,13 @@ const Property = () => {
 
   return (
     <div className=" w-full px-0 lg:px-20 pb-40 mt-0 lg:mt-10">
-      {property.map((item, index) => {
-        return (
+      {leastAmountProperty && (
+        <div
+          key={leastAmountProperty.id}
+          className="w-full h-full flex flex-col-reverse lg:flex-col "
+        >
           <div
-            key={item.id}
+            key={leastAmountProperty.id}
             className="w-full h-full flex flex-col-reverse lg:flex-col "
           >
             {/* top */}
@@ -104,9 +118,9 @@ const Property = () => {
             <div className="w-full flex flex-col lg:flex-row items-start justify-between gap-0 lg:gap-8">
               {/* left => images display on web view */}
               <div className=" hidden w-full lg:w-[65%] lg:flex flex-wrap items-start justify-start gap-5">
-                {item.imgs.map((img, index) => (
+                {leastAmountProperty.imgs.map((img, index) => (
                   <img
-                    key={img[index]}
+                    key={index}
                     src={img}
                     alt=""
                     className=" w-[346px] h-64 object-cover rounded-2xl "
@@ -116,7 +130,7 @@ const Property = () => {
 
               {/* images display on mobile */}
               <div className=" w-full h-64 flex lg:hidden relative overflow-hidden">
-                {item.imgs.map((img, index) => {
+                {leastAmountProperty.imgs.map((img, index) => {
                   const handleDotClick = (index: any) => {
                     setCurrentIndex(index);
                   };
@@ -134,7 +148,7 @@ const Property = () => {
                       />
 
                       <div className="absolute flex items-center space-x-2 bottom-4 left-1/2 transform -translate-x-1/2">
-                        {item.imgs.map((_, index) => (
+                        {leastAmountProperty.imgs.map((_, index) => (
                           <div
                             key={index}
                             onClick={() => handleDotClick(index)}
@@ -173,7 +187,7 @@ const Property = () => {
                   Semi-detached duplex in Yaba
                 </h2>
                 <p className=" w-full text-start font-inter font-medium text-base leading-7">
-                  {item.address}
+                  {leastAmountProperty.address}
                 </p>
                 <div className=" w-full flex items-center justify-start ">
                   <div className=" flex items-center justify-center gap-1">
@@ -198,16 +212,14 @@ const Property = () => {
                   </div>
                 </div>
                 <p className=" font-inter font-medium text-base text-neutrals_200 leading-7">
-                  Available 8 Nov
+                  Available {leastAmountProperty.date}
                 </p>
                 <div>
                   <h3 className=" font-interTight font-semibold text-xl text-neutrals_100 leading-8 ">
                     Property Description
                   </h3>
                   <p className=" font-inter font-medium text-base text-neutrals_300 leading-7">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.{" "}
+                    {leastAmountProperty.propertyDesc}
                   </p>
                 </div>
                 <CustomButton
@@ -221,16 +233,21 @@ const Property = () => {
               </div>
             </div>
           </div>
-        );
-      })}
+        </div>
+      )}
 
       <div className=" w-full flex flex-col-reverse lg:flex-row gap-0 lg:gap-8">
         <div className=" w-full lg:w-[65%] mt-8 lg:mt-16">
           {/* <PropertyTab /> */}
           <CustomTabs tabs={tabs} />
+
+          <CustomButton
+            text="Show all units"
+            className="hidden lg:flex w-[146px] h-12 px-0 py-4 rounded font-inter font-medium text-base text-primary_main leading-7 border-[1px] border-primary_main mt-10"
+          />
         </div>
         <div className=" w-full lg:w-[35%]">
-          <TotalPaymentCard />
+          <TotalPaymentCard amount={leastAmountProperty.amount} />
         </div>
       </div>
     </div>

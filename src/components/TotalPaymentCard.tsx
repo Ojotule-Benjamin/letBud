@@ -1,13 +1,17 @@
 import React from "react";
 import CustomButton from "./CustomButton";
 
-const TotalPaymentCard = () => {
+interface paymentprops {
+  amount: string;
+}
+
+const TotalPaymentCard: React.FC<paymentprops> = ({ amount }) => {
   return (
     <div className=" w- lg:w-[396px] h-[213px] rounded-lg shadow-xl border-[1px] border-neutrals_700 px-5 py-8 bg-white">
       <div className=" w-full flex items-center justify-between">
         <div className=" flex items-center justify-center">
-          <h4 className=" font-interTight font-bold text-2xl text-[#1E1E2D] leading-10 pr-[2px]">
-            ₦ 4,000,000{" "}
+          <h4 className=" font-interTight font-bold text-2xl text-[#1E1E2D] leading-10 ">
+            ₦ {amount}{" "}
             <span className=" font-inter font-medium text-base text-neutrals_300 leading-7">
               yearly
             </span>

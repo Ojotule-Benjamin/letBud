@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import icon1 from "../assets/svg/icon1.svg";
 import icon2 from "../assets/svg/icon2.svg";
 import icon3 from "../assets/svg/icon3.svg";
-import CustomButton from "./CustomButton";
 
 interface UnitDetailsProps {
   houseDetails: {
@@ -21,6 +20,7 @@ const detailIconMapping: { [key: string]: string } = {
 
 const UnitDetails: React.FC<UnitDetailsProps> = (props) => {
   const { unitDetails } = props.houseDetails;
+
   return (
     <div className=" w-[565px] h-[201px] cursor-pointer bg-[#FCFCFD] flex items-center justify-between gap-6 px-5 py-0 border-[1px] border-[#E9EAED] mt-10">
       <div className="w-44 h-[137px]">

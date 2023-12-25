@@ -238,7 +238,6 @@ const Property = () => {
 
       <div className=" w-full flex flex-col-reverse lg:flex-row gap-0 lg:gap-8">
         <div className=" w-full lg:w-[65%] mt-8 lg:mt-16">
-          {/* <PropertyTab /> */}
           <CustomTabs tabs={tabs} />
 
           <CustomButton

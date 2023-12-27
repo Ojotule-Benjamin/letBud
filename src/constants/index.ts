@@ -68,6 +68,18 @@ export const property = [
       wasteBill: 200000,
       RentalYearlyFee: 5000000,
     },
+    features: [
+      "Off street parking",
+      "24 hours electricity",
+      "Air conditioner",
+      "Dishwasher",
+      "Tiled floor",
+      "Pool",
+      "Car park",
+      "Furnished apartment",
+      "Washing machine",
+      "Balcony/deck",
+    ],
     units: [
       {
         unit: 1,
@@ -124,6 +136,18 @@ export const property = [
       wasteBill: 50000,
       RentalYearlyFee: 3000000,
     },
+    features: [
+      "Off street parking",
+      "24 hours electricity",
+      "Air conditioner",
+      "Dishwasher",
+      "Tiled floor",
+      "Pool",
+      "Car park",
+      "Furnished apartment",
+      "Washing machine",
+      "Balcony/deck",
+    ],
     units: [
       {
         unit: 1,

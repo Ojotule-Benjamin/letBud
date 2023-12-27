@@ -1,4 +1,5 @@
 import React, { useState, ReactNode } from "react";
+import CustomButton from "./CustomButton";
 
 interface Tab {
   label: string;
@@ -33,10 +34,7 @@ export const CustomTabs: React.FC<CustomTabsProps> = ({ tabs }) => {
           </div>
         ))}
       </div>
-      <div>
-        {/* Render content based on the active tab */}
-        {tabs[activeTab].content}
-      </div>
+      <div>{tabs[activeTab].content}</div>
     </div>
   );
 };

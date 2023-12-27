@@ -101,7 +101,7 @@ const Property = () => {
       label: "Amenities",
       content: (
         <div>
-          <Amenities />
+          <Amenities features={leastAmountProperty.features} />
         </div>
       ),
     },
@@ -284,11 +284,6 @@ const Property = () => {
       <div className=" w-full flex flex-col-reverse lg:flex-row gap-0 lg:gap-8">
         <div className=" w-full lg:w-[65%] mt-8 lg:mt-16">
           <CustomTabs tabs={tabs} />
-
-          <CustomButton
-            text="Show all units"
-            className="flex w-[146px] h-12 ml-4 lg:ml-0 px-0 py-4 rounded font-inter font-medium text-base text-primary_main leading-7 border-[1px] border-primary_main mt-10"
-          />
         </div>
         <div className=" w-full lg:w-[35%]">
           <TotalPaymentCard

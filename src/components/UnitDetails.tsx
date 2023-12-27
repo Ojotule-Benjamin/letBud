@@ -31,7 +31,6 @@ const UnitDetails: React.FC<UnitDetailsProps> = (props) => {
         props.isSelected && "border-[1px] border-primary_main"
       }`}
       onClick={props.onClick}
-      //  className=" w-[90%] md:w-[343px] lg:w-[565px] h-[170px] lg:h-[201px] shadow-xl cursor-pointer bg-[#FCFCFD] flex items-center justify-between gap-3 lg:gap-6 px-2 lg:px-5 py-0 border-[1px] border-[#E9EAED] rounded-lg mx-auto md:mx-0 mt-10"
     >
       <div className=" w-full h-[90px] lg:w-44 lg:h-[137px]">
         <img

@@ -94,6 +94,10 @@ const Property = () => {
               </div>
             );
           })}
+          <CustomButton
+            text="Show all units"
+            className="flex w-40 h-12 ml-4 lg:ml-0 px-0 py-4 rounded font-inter font-medium text-base text-primary_main leading-7 border-[1px] border-primary_main mt-10"
+          />
         </div>
       ),
     },
@@ -137,7 +141,7 @@ const Property = () => {
             {/* top */}
             <div className=" w-full hidden lg:flex px-4 lg:px-0 flex-col lg:flex-row items-start justify-between mb-5">
               <h2 className=" w-full lg:w-[80%] font-interTight font-medium text-xl lg:text-3xl lg:leading-[52px] text-start">
-                Semi-detached duplex in Yaba
+                {leastAmountProperty.name}
               </h2>
               <div className=" w-full lg:w-[40%] flex items-start justify-between gap-0">
                 {/* icons */}
@@ -288,7 +292,7 @@ const Property = () => {
         <div className=" w-full lg:w-[35%]">
           <TotalPaymentCard
             selectedUnitIndex={selectedUnitIndex}
-            amount={leastAmountProperty.amount}
+            billDetails={leastAmountProperty.billSummary}
             onRequestRent={handleRequestRent}
           />
         </div>

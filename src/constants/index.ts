@@ -103,11 +103,10 @@ export const property = [
   },
   {
     id: 1,
-    name: "Full-detached duplex in Life-camp Abuja",
+    name: "Fully-detached duplex in Life-camp Abuja",
     address: "Opposite Stella Marist College, Life-camp",
     propertyDesc:
       "Welcome to our charming semi-detached duplex in the heart of Abuja. This tastefully designed residence on Anifowoshe Street, Sabo, offers a perfect blend of comfort and style. Featuring spacious units with modern amenities, each unit promises a delightful living experience.",
-    // imgs: [bedroom, DiningArea, FurnishedApartment, imagery],
     imgs: [
       {
         id: 0,

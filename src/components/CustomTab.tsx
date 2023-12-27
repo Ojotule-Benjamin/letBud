@@ -1,5 +1,4 @@
 import React, { useState, ReactNode } from "react";
-import CustomButton from "./CustomButton";
 
 interface Tab {
   label: string;

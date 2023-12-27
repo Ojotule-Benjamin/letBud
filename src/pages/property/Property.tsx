@@ -13,6 +13,7 @@ import UnitDetails from "../../components/UnitDetails";
 import Policies from "../../components/Policies";
 import RentDetailsModal from "../../components/RentDetailsModal";
 import BillStructure from "../../components/BillStructure";
+import Amenities from "../../components/Amenities";
 
 const icons = [
   {
@@ -96,7 +97,14 @@ const Property = () => {
         </div>
       ),
     },
-    { label: "Amenities", content: <div>Content for Amenities</div> },
+    {
+      label: "Amenities",
+      content: (
+        <div>
+          <Amenities />
+        </div>
+      ),
+    },
     {
       label: "Policies",
       content: (

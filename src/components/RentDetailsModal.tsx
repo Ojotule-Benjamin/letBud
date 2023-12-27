@@ -63,7 +63,7 @@ const RentDetailsModal: React.FC<RentDetailsModalProps> = ({
             onClick={onClose}
             className="px-4 py-2 bg-primary_main text-white rounded-md hover:bg-primary_dark"
           >
-            Close Modal
+            Close
           </button>
         </div>
       </div>

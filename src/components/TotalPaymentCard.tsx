@@ -14,7 +14,7 @@ const TotalPaymentCard: React.FC<paymentprops> = ({
 }) => {
   const isActive = selectedUnitIndex !== null;
   return (
-    <div className=" w- lg:w-[396px] h-[213px] rounded-lg shadow-xl border-[1px] border-neutrals_700 px-5 py-8 bg-white">
+    <div className=" w-full lg:w-[396px] h-[213px] rounded-lg shadow-xl border-[1px] border-neutrals_700 px-5 py-8 bg-white">
       <div className=" w-full flex items-center justify-between">
         <div className=" flex items-center justify-center">
           <h4 className=" font-interTight font-bold text-2xl text-[#1E1E2D] leading-10 ">

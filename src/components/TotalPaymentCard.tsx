@@ -3,9 +3,14 @@ import CustomButton from "./CustomButton";
 
 interface paymentprops {
   amount: string;
+  selectedUnitIndex: number | null;
 }
 
-const TotalPaymentCard: React.FC<paymentprops> = ({ amount }) => {
+const TotalPaymentCard: React.FC<paymentprops> = ({
+  amount,
+  selectedUnitIndex,
+}) => {
+  const isActive = selectedUnitIndex !== null;
   return (
     <div className=" w- lg:w-[396px] h-[213px] rounded-lg shadow-xl border-[1px] border-neutrals_700 px-5 py-8 bg-white">
       <div className=" w-full flex items-center justify-between">
@@ -25,7 +30,7 @@ const TotalPaymentCard: React.FC<paymentprops> = ({ amount }) => {
         <p className="font-inter font-medium text-sm text-[#4B7BCD]">
           Total Package -{" "}
         </p>
-        <h4 className="pl-[2px]"> ₦6,000,000</h4>
+        <h4 className="">₦ 6,000,000</h4>
       </div>
       <div className=" w-full flex-row flex items-center justify-between gap-5 lg:gap-0">
         <CustomButton
@@ -33,7 +38,11 @@ const TotalPaymentCard: React.FC<paymentprops> = ({ amount }) => {
           text="Request a tour"
         />
         <CustomButton
-          className=" w-[164px] h-12 rounded-[4px] border-[1px] border-[#274C8C] font-inter font-medium text-base text-neutrals_100 leading-7 bg-button_active"
+          className={`w-[164px] h-12 rounded-[4px] border-[1px] font-inter font-medium text-base text-neutrals_100 leading-7 ${
+            isActive
+              ? "bg-button_active border-none"
+              : "bg-neutrals_700 border-[#274C8C]"
+          }`}
           text="Request a rent"
         />
       </div>

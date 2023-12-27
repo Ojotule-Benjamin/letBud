@@ -32,6 +32,9 @@ const icons = [
 
 const Property = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedUnitIndex, setSelectedUnitIndex] = useState<number | null>(
+    null
+  );
 
   const compareAmount = (a: any, b: any) => {
     const amountA = parseFloat(a.amount);
@@ -47,8 +50,12 @@ const Property = () => {
   };
 
   const sortedProperty = property.sort(compareAmount);
-
   const leastAmountProperty = sortedProperty[0];
+
+  const handleUnitDetailsClick = (index: number) => {
+    // Update the selectedUnitIndex state
+    setSelectedUnitIndex(index);
+  };
 
   const tabs = [
     {
@@ -58,7 +65,12 @@ const Property = () => {
           {leastAmountProperty.units.map((propertyItem, propertyIndex) => {
             return (
               <div key={propertyIndex}>
-                <UnitDetails key={propertyIndex} houseDetails={propertyItem} />
+                <UnitDetails
+                  key={propertyIndex}
+                  houseDetails={propertyItem}
+                  isSelected={propertyIndex === selectedUnitIndex}
+                  onClick={() => handleUnitDetailsClick(propertyIndex)}
+                />
               </div>
             );
           })}
@@ -118,8 +130,8 @@ const Property = () => {
               <div className=" hidden w-full lg:w-[65%] lg:flex flex-wrap items-start justify-start gap-5">
                 {leastAmountProperty.imgs.map((img, index) => (
                   <img
-                    key={img.id}
                     src={img.picture}
+                    key={index}
                     alt=""
                     className=" w-[346px] h-64 object-cover rounded-2xl "
                   />
@@ -245,7 +257,10 @@ const Property = () => {
           />
         </div>
         <div className=" w-full lg:w-[35%]">
-          <TotalPaymentCard amount={leastAmountProperty.amount} />
+          <TotalPaymentCard
+            selectedUnitIndex={selectedUnitIndex}
+            amount={leastAmountProperty.amount}
+          />
         </div>
       </div>
     </div>

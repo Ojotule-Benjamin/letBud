@@ -4,11 +4,13 @@ import CustomButton from "./CustomButton";
 interface paymentprops {
   amount: string;
   selectedUnitIndex: number | null;
+  onRequestRent: () => void;
 }
 
 const TotalPaymentCard: React.FC<paymentprops> = ({
   amount,
   selectedUnitIndex,
+  onRequestRent,
 }) => {
   const isActive = selectedUnitIndex !== null;
   return (
@@ -44,6 +46,7 @@ const TotalPaymentCard: React.FC<paymentprops> = ({
               : "bg-neutrals_700 border-[#274C8C]"
           }`}
           text="Request a rent"
+          onClick={onRequestRent}
         />
       </div>
     </div>

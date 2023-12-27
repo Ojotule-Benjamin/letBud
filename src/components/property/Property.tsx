@@ -11,6 +11,7 @@ import TotalPaymentCard from "../TotalPaymentCard";
 import { CustomTabs } from "../CustomTab";
 import UnitDetails from "../UnitDetails";
 import Policies from "../Policies";
+import RentDetailsModal from "../RentDetailsModal";
 
 const icons = [
   {
@@ -35,6 +36,10 @@ const Property = () => {
   const [selectedUnitIndex, setSelectedUnitIndex] = useState<number | null>(
     null
   );
+  const [isRentModalOpen, setRentModalOpen] = useState(false);
+  const [selectedUnitDetails, setSelectedUnitDetails] = useState<any | null>(
+    null
+  );
 
   const compareAmount = (a: any, b: any) => {
     const amountA = parseFloat(a.amount);
@@ -52,9 +57,19 @@ const Property = () => {
   const sortedProperty = property.sort(compareAmount);
   const leastAmountProperty = sortedProperty[0];
 
-  const handleUnitDetailsClick = (index: number) => {
+  const handleUnitDetailsClick = (index: number, unitDetailsData: any) => {
     // Update the selectedUnitIndex state
     setSelectedUnitIndex(index);
+    setSelectedUnitDetails(unitDetailsData);
+  };
+
+  const handleRequestRent = () => {
+    if (selectedUnitIndex !== null) {
+      // Retrieve selected unit details using selectedUnitIndex
+      const unitDetails = selectedUnitDetails;
+      setSelectedUnitDetails(unitDetails);
+      setRentModalOpen(true);
+    }
   };
 
   const tabs = [
@@ -69,7 +84,9 @@ const Property = () => {
                   key={propertyIndex}
                   houseDetails={propertyItem}
                   isSelected={propertyIndex === selectedUnitIndex}
-                  onClick={() => handleUnitDetailsClick(propertyIndex)}
+                  onClick={() =>
+                    handleUnitDetailsClick(propertyIndex, propertyItem)
+                  }
                 />
               </div>
             );
@@ -260,8 +277,15 @@ const Property = () => {
           <TotalPaymentCard
             selectedUnitIndex={selectedUnitIndex}
             amount={leastAmountProperty.amount}
+            onRequestRent={handleRequestRent}
           />
         </div>
+        {isRentModalOpen && (
+          <RentDetailsModal
+            onClose={() => setRentModalOpen(false)}
+            unitDetails={selectedUnitDetails}
+          />
+        )}
       </div>
     </div>
   );

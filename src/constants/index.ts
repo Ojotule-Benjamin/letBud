@@ -80,17 +80,18 @@ export const property = [
       "Washing machine",
       "Balcony/deck",
     ],
+    rooms: ["3 Bedroom", "5 Bathroom", "1700Sqft"],
     units: [
       {
         unit: 1,
         unitDetails: ["1 Bedroom", "2 Bathroom", "1000Sqft"],
-        amount: "150,000",
+        amount: "1,550,000",
         img: bedroom,
       },
       {
         unit: 2,
         unitDetails: ["2 Bedroom", "3 Bathroom", "700Sqft"],
-        amount: "350,000",
+        amount: "2,500,000",
         img: FurnishedApartment,
       },
       {
@@ -147,17 +148,18 @@ export const property = [
       "Washing machine",
       "Balcony/deck",
     ],
+    rooms: ["2 Bedroom", "4 Bathroom", "1200Sqft"],
     units: [
       {
         unit: 1,
-        unitDetails: ["1 Bedroom", "2 Bathroom", "500Sqft"],
-        amount: "50,000",
+        unitDetails: ["1 Bedroom", "1 Bathroom", "500Sqft"],
+        amount: "350,000",
         img: imagery,
       },
       {
         unit: 2,
         unitDetails: ["1 Bedroom", "3 Bathroom", "700Sqft"],
-        amount: "30,000",
+        amount: "650,000",
         img: FurnishedApartment,
       },
     ],

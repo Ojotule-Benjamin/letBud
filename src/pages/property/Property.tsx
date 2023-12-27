@@ -34,6 +34,7 @@ const icons = [
 ];
 
 const Property = () => {
+  const iconsCard = [icon1, icon2, icon3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedUnitIndex, setSelectedUnitIndex] = useState<number | null>(
     null
@@ -233,32 +234,25 @@ const Property = () => {
               {/* right */}
               <div className=" w-full p-4 lg:p-0 lg:w-[35%] h-full flex-1 mt-0 lg:mt-4 flex flex-col gap-3 bg-light">
                 <h2 className=" flex lg:hidden w-full lg:w-[80%] font-interTight font-medium text-xl lg:text-3xl lg:leading-[52px] text-start">
-                  Semi-detached duplex in Yaba
+                  {leastAmountProperty.name}
                 </h2>
                 <p className=" w-full text-start font-inter font-medium text-base leading-7">
                   {leastAmountProperty.address}
                 </p>
-                <div className=" w-full flex items-center justify-start ">
-                  <div className=" flex items-center justify-center gap-1">
-                    <img src={icon1} alt="" />
-                    <span className=" font-inter font-medium text-xs lg:text-base text-[neutrals_200]">
-                      5 Bedroom
-                    </span>
-                  </div>
-                  <div className=" mx-1 lg:mx-2 h-4 border-r-[1px] border-[neutrals_500]"></div>
-                  <div className=" flex items-center justify-center gap-1">
-                    <img src={icon2} alt="" />
-                    <span className=" font-inter font-medium text-xs lg:text-base text-[neutrals_200]">
-                      6 Bathroom
-                    </span>
-                  </div>
-                  <div className=" mx-1 lg:mx-2 h-4 border-r-[1px] border-[neutrals_500]"></div>
-                  <div className=" flex items-center justify-center gap-1">
-                    <img src={icon3} alt="" />
-                    <span className=" font-inter font-medium text-xs lg:text-base text-[neutrals_200]">
-                      1000Sqft
-                    </span>
-                  </div>
+                <div className="w-full flex items-center justify-start">
+                  {leastAmountProperty.rooms.map((item, index) => (
+                    <React.Fragment key={index}>
+                      <div className="flex items-center justify-center gap-1">
+                        <img src={iconsCard[index]} alt="" />
+                        <span className="font-inter font-medium text-xs lg:text-base text-[neutrals_200]">
+                          {item}
+                        </span>
+                      </div>
+                      {index < 2 && (
+                        <div className="mx-1 lg:mx-2 h-4 border-r-[1px] border-[neutrals_500]"></div>
+                      )}
+                    </React.Fragment>
+                  ))}
                 </div>
                 <p className=" font-inter font-medium text-base text-neutrals_200 leading-7">
                   Available {leastAmountProperty.date}

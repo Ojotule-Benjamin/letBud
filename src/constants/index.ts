@@ -3,6 +3,36 @@ import DiningArea from "../assets/img/DiningArea.png";
 import FurnishedApartment from "../assets/img/furnishedApartment.png";
 import imagery from "../assets/img/imagery.png";
 
+export type PropertyData = {
+  bedroom: string;
+  DiningArea: string;
+  FurnishedApartment: string;
+  imagery: string;
+
+  Image: {
+    id: number;
+    picture: keyof PropertyData;
+  };
+
+  Unit: {
+    unit: number;
+    unitDetails: string[];
+    amount: string;
+    img: keyof PropertyData;
+  };
+
+  Property: {
+    id: number;
+    name: string;
+    address: string;
+    propertyDesc: string;
+    imgs: PropertyData["Image"][];
+    date: string;
+    amount: string;
+    units: PropertyData["Unit"][];
+  };
+};
+
 export const property = [
   {
     id: 0,

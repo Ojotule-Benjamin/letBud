@@ -6,12 +6,13 @@ import icon1 from "../../assets/svg/icon1.svg";
 import icon2 from "../../assets/svg/icon2.svg";
 import icon3 from "../../assets/svg/icon3.svg";
 import { property } from "../../constants";
-import CustomButton from "../CustomButton";
-import TotalPaymentCard from "../TotalPaymentCard";
-import { CustomTabs } from "../CustomTab";
-import UnitDetails from "../UnitDetails";
-import Policies from "../Policies";
-import RentDetailsModal from "../RentDetailsModal";
+import CustomButton from "../../components/CustomButton";
+import TotalPaymentCard from "../../components/TotalPaymentCard";
+import { CustomTabs } from "../../components/CustomTab";
+import UnitDetails from "../../components/UnitDetails";
+import Policies from "../../components/Policies";
+import RentDetailsModal from "../../components/RentDetailsModal";
+// import { PropertyData } from "../../constants";
 
 const icons = [
   {
@@ -41,6 +42,7 @@ const Property = () => {
     null
   );
 
+  //find the least amount unit price
   const compareAmount = (a: any, b: any) => {
     const amountA = parseFloat(a.amount);
     const amountB = parseFloat(b.amount);
@@ -58,20 +60,20 @@ const Property = () => {
   const leastAmountProperty = sortedProperty[0];
 
   const handleUnitDetailsClick = (index: number, unitDetailsData: any) => {
-    // Update the selectedUnitIndex state
     setSelectedUnitIndex(index);
     setSelectedUnitDetails(unitDetailsData);
   };
 
+  // callback function for request rent button
   const handleRequestRent = () => {
     if (selectedUnitIndex !== null) {
-      // Retrieve selected unit details using selectedUnitIndex
       const unitDetails = selectedUnitDetails;
       setSelectedUnitDetails(unitDetails);
       setRentModalOpen(true);
     }
   };
 
+  //define contents for each tab
   const tabs = [
     {
       label: "Unit Details",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "../../assets/svg/logo.svg";
-import userFill from "../../assets/svg/userFill.svg";
-import menuIcon from "../../assets/svg/menuIcon.svg";
+import logo from "../assets/svg/logo.svg";
+import userFill from "../assets/svg/userFill.svg";
+import menuIcon from "../assets/svg/menuIcon.svg";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Navbar = () => {

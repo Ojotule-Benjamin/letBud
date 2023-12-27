@@ -18,7 +18,7 @@ export const CustomTabs: React.FC<CustomTabsProps> = ({ tabs }) => {
 
   return (
     <div>
-      <div className="flex gap-0 lg:gap-8 border-b-[1px] px-2 lg:px-0">
+      <div className="flex gap-0 lg:gap-8 border-b-[1px] px-2 lg:px-0 ">
         {tabs.map((tab, index) => (
           <div
             key={index}

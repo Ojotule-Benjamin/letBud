@@ -14,6 +14,8 @@ import Policies from "../../components/Policies";
 import RentDetailsModal from "../../components/RentDetailsModal";
 import BillStructure from "../../components/BillStructure";
 import Amenities from "../../components/Amenities";
+import CustomGoogleMap from "../../components/CustomGoogleMap";
+import Reviews from "../../components/Reviews";
 
 const icons = [
   {
@@ -280,8 +282,9 @@ const Property = () => {
       )}
 
       <div className=" w-full flex flex-col-reverse lg:flex-row gap-0 lg:gap-8">
-        <div className=" w-full lg:w-[65%] mt-8 lg:mt-16">
+        <div className=" w-full lg:w-[65%] mt-24 lg:mt-16">
           <CustomTabs tabs={tabs} />
+          <div className="w-full border-b-[1px] mt-12"></div>
         </div>
         <div className=" w-full lg:w-[35%]">
           <TotalPaymentCard
@@ -297,6 +300,11 @@ const Property = () => {
           />
         )}
       </div>
+
+      <CustomGoogleMap />
+      <Policies text={"FAQs"} />
+      <div className="w-[90%] mx-auto border-b-[1px] my-6 lg:my-12"></div>
+      <Reviews />
     </div>
   );
 };

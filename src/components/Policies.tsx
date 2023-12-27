@@ -1,10 +1,14 @@
 import React from "react";
 
-const Policies = () => {
+type policies = {
+  text?: string;
+};
+
+const Policies: React.FC<policies> = ({ text = "Policies" }) => {
   return (
     <div className=" flex items-start justify-start flex-col gap-5 pl-4 mt-10">
       <h2 className=" font-inter font-semibold text-xl leading-8 text-neutrals_100">
-        Policies
+        {text}
       </h2>
       <div>
         <h3 className=" font-inter font-semibold text-base leading-7 text-neutrals_100">

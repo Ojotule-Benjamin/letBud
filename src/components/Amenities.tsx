@@ -31,7 +31,7 @@ const Amenities: React.FC<AmenitiesProps> = ({ features }) => {
   ];
 
   return (
-    <div className=" pl-0 mt-10">
+    <div className=" pl-4 lg:pl-0 mt-10">
       <div className=" flex items-center lg:justify-start flex-wrap gap-6">
         {features.map((item, index) => (
           <div

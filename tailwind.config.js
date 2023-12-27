@@ -16,6 +16,9 @@ module.exports = {
         neutrals_700: "#E9EAED",
         button_active: "#F6C542",
         background_color: "#BFC3CA",
+        payment_color_variation: {
+          first: "#4E7CA8",
+        },
       },
       screens: {
         screens: {

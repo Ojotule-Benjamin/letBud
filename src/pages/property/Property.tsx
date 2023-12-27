@@ -12,7 +12,7 @@ import { CustomTabs } from "../../components/CustomTab";
 import UnitDetails from "../../components/UnitDetails";
 import Policies from "../../components/Policies";
 import RentDetailsModal from "../../components/RentDetailsModal";
-// import { PropertyData } from "../../constants";
+import BillStructure from "../../components/BillStructure";
 
 const icons = [
   {
@@ -42,7 +42,7 @@ const Property = () => {
     null
   );
 
-  //find the least amount unit price
+  //find the least unit price
   const compareAmount = (a: any, b: any) => {
     const amountA = parseFloat(a.amount);
     const amountB = parseFloat(b.amount);
@@ -105,7 +105,14 @@ const Property = () => {
         </div>
       ),
     },
-    { label: "Bill Structure", content: <div>Content for Bill Structure</div> },
+    {
+      label: "Bill Structure",
+      content: (
+        <div>
+          <BillStructure billDetails={leastAmountProperty.billSummary} />
+        </div>
+      ),
+    },
   ];
 
   return (

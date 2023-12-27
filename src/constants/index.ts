@@ -58,9 +58,16 @@ export const property = [
         picture: imagery,
       },
     ],
-
     date: "Nov 8",
-    amount: "580,000",
+    amount: "7,000,000",
+    billSummary: {
+      cautionFee: 350000,
+      agencyFee: 350000,
+      letBudServiceFee: 700000,
+      electricityBill: 400000,
+      wasteBill: 200000,
+      RentalYearlyFee: 5000000,
+    },
     units: [
       {
         unit: 1,
@@ -108,7 +115,15 @@ export const property = [
       },
     ],
     date: "8 Dec",
-    amount: "80,000",
+    amount: "4,000,000",
+    billSummary: {
+      cautionFee: 200000,
+      agencyFee: 200000,
+      letBudServiceFee: 400000,
+      electricityBill: 150000,
+      wasteBill: 50000,
+      RentalYearlyFee: 3000000,
+    },
     units: [
       {
         unit: 1,

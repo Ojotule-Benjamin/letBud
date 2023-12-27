@@ -32,7 +32,7 @@ const TotalPaymentCard: React.FC<paymentprops> = ({
         <p className="font-inter font-medium text-sm text-[#4B7BCD]">
           Total Package -{" "}
         </p>
-        <h4 className="">₦ 6,000,000</h4>
+        <h4 className="pl-[2px]">₦6,000,000</h4>
       </div>
       <div className=" w-full flex-row flex items-center justify-between gap-5 lg:gap-0">
         <CustomButton

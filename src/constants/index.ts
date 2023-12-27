@@ -33,21 +33,18 @@ export const property = [
     amount: "580,000",
     units: [
       {
-        id: 0,
         unit: 1,
         unitDetails: ["1 Bedroom", "2 Bathroom", "1000Sqft"],
         amount: "150,000",
         img: bedroom,
       },
       {
-        id: 0,
         unit: 2,
         unitDetails: ["2 Bedroom", "3 Bathroom", "700Sqft"],
         amount: "350,000",
         img: FurnishedApartment,
       },
       {
-        id: 0,
         unit: 3,
         unitDetails: ["5 Bedroom", "3 Bathroom", "900Sqft"],
         amount: "80,000",
@@ -84,14 +81,12 @@ export const property = [
     amount: "80,000",
     units: [
       {
-        id: 0,
         unit: 1,
         unitDetails: ["1 Bedroom", "2 Bathroom", "500Sqft"],
         amount: "50,000",
         img: imagery,
       },
       {
-        id: 0,
         unit: 2,
         unitDetails: ["1 Bedroom", "3 Bathroom", "700Sqft"],
         amount: "30,000",

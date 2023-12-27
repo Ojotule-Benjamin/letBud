@@ -25,7 +25,7 @@ const icons = [
     icon: shareIcon,
   },
   {
-    id: 3,
+    id: 2,
     iconName: "Report",
     icon: reportIcon,
   },

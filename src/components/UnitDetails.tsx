@@ -28,7 +28,7 @@ const UnitDetails: React.FC<UnitDetailsProps> = (props) => {
   return (
     <div
       className={`w-[90%] md:w-[343px] lg:w-[565px] h-[170px] lg:h-[201px] bg-neutrals_700 shadow-xl cursor-pointer flex items-center justify-between gap-3 lg:gap-6 px-2 lg:px-5 py-0 rounded-lg mx-auto md:mx-0 mt-10 ${
-        props.isSelected && "border-[1px] border-primary_main"
+        props.isSelected && "border-[2px] border-primary_main"
       }`}
       onClick={props.onClick}
     >

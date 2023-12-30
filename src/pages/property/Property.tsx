@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import saveIcon from "../../assets/svg/saveIcon.svg";
 import shareIcon from "../../assets/svg/shareIcon.svg";
 import reportIcon from "../../assets/svg/reportIcon.svg";
@@ -77,10 +77,10 @@ const Property = () => {
     }
   };
 
-  //define contents for each tab
-  const tabs = [
+  const [subTab, setSubTab] = useState(0);
+  const additionalTabs = [
     {
-      label: "Unit Details",
+      label: "All",
       content: (
         <div>
           {leastAmountProperty.units.map((propertyItem, propertyIndex) => {
@@ -97,6 +97,47 @@ const Property = () => {
               </div>
             );
           })}
+        </div>
+      ),
+    },
+    { label: "1 Bed", content: <div>1 Bedroom content goes here</div> },
+    { label: "2 Bed", content: <div>2 Bedroom content goes here</div> },
+  ];
+
+  const handleTabClick = (index: number) => {
+    setSubTab(index);
+  };
+
+  interface Tab {
+    label: string;
+    content: ReactNode;
+  }
+
+  //define contents for each tab
+  const tabs = [
+    {
+      label: "Unit Details",
+      content: (
+        <div>
+          <div>
+            <div className=" w-56 h-14 flex items-center justify-center py-3 gap-5 mt-9">
+              {additionalTabs.map((additionalTabs: Tab, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleTabClick(index)}
+                  className={` cursor-pointertext-start font-inter font-medium text-xs lg:text-base w-full ${
+                    subTab === index
+                      ? "border-b-2 text-neutrals_100 border-neutrals_100"
+                      : "text-neutrals_300"
+                  }`}
+                >
+                  {additionalTabs.label}
+                </div>
+              ))}
+            </div>
+            <div>{additionalTabs[subTab].content}</div>
+          </div>
+
           <CustomButton
             text="Show all units"
             className="flex w-40 h-12 ml-4 lg:ml-0 px-0 py-4 rounded font-inter font-medium text-base text-primary_main leading-7 border-[1px] border-primary_main mt-10"
